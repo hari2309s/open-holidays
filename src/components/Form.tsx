@@ -11,7 +11,7 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import 'dayjs/locale/de';
-import { Button, Select } from '@mui/joy';
+import { Button, Option, Select } from '@mui/joy';
 import { getPublicHolidays } from '../store/features/public-holidays/publicHolidaysSlice';
 import { HolidayType } from '../api/types';
 import { getSchoolHolidays } from '../store/features/school-holidays/schoolHolidaysSlice';
@@ -135,18 +135,19 @@ const Form = () => {
                     defaultValue={HolidayType.PUBLIC}
                     value={formValues.type}
                     onChange={handleTypeChange}
+                    size="lg"
                     sx={{
                         minWidth: '230px',
                         minHeight: '56px',
                         marginRight: '15px',
                     }}
                 >
-                    <option value={HolidayType.PUBLIC}>
+                    <Option value={HolidayType.PUBLIC}>
                         {HolidayType.PUBLIC + ' holidays'}
-                    </option>
-                    <option value={HolidayType.SCHOOL}>
+                    </Option>
+                    <Option value={HolidayType.SCHOOL}>
                         {HolidayType.SCHOOL + ' holidays'}
-                    </option>
+                    </Option>
                 </Select>
                 <Button
                     variant="solid"

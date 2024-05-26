@@ -12,9 +12,6 @@ function App() {
                 <Typography level="h2" sx={{ color: '#006d77' }}>
                     Open Holidays
                 </Typography>
-                <Typography level="h4">
-                    Public holidays in different countries
-                </Typography>
             </Header>
             <Container>
                 <Form />
