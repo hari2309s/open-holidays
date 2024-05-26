@@ -4,10 +4,7 @@ import {
     createAsyncThunk,
     createSlice,
 } from '@reduxjs/toolkit';
-import {
-    IPublicHoliday,
-    IPublicHolidaysRequestPayload,
-} from '../../../api/types';
+import { IPublicHoliday, IHolidaysRequestPayload } from '../../../api/types';
 import { getPublicHolidays as getPublicHolidaysAPI } from '../../../api';
 import { RootState } from '../..';
 
@@ -26,7 +23,7 @@ const initialState: PublicHolidaysState = {
 export const getPublicHolidays = createAsyncThunk(
     'publicHolidays/getPublicHolidays',
     async (
-        { countryIsoCode, validFrom, validTo }: IPublicHolidaysRequestPayload,
+        { countryIsoCode, validFrom, validTo }: IHolidaysRequestPayload,
         { rejectWithValue },
     ) => {
         try {

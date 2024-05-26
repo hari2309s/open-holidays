@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.3c426c51.css",
-    "main.js": "/static/js/main.d66b4e06.js",
-    "static/js/453.423839a4.chunk.js": "/static/js/453.423839a4.chunk.js",
-    "index.html": "/index.html",
-    "main.3c426c51.css.map": "/static/css/main.3c426c51.css.map",
-    "main.d66b4e06.js.map": "/static/js/main.d66b4e06.js.map",
-    "453.423839a4.chunk.js.map": "/static/js/453.423839a4.chunk.js.map"
+    "main.css": "/open-holidays/static/css/main.3c426c51.css",
+    "main.js": "/open-holidays/static/js/main.a9b7ebdf.js",
+    "static/js/453.423839a4.chunk.js": "/open-holidays/static/js/453.423839a4.chunk.js",
+    "index.html": "/open-holidays/index.html",
+    "main.3c426c51.css.map": "/open-holidays/static/css/main.3c426c51.css.map",
+    "main.a9b7ebdf.js.map": "/open-holidays/static/js/main.a9b7ebdf.js.map",
+    "453.423839a4.chunk.js.map": "/open-holidays/static/js/453.423839a4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c426c51.css",
-    "static/js/main.d66b4e06.js"
+    "static/js/main.a9b7ebdf.js"
   ]
 }

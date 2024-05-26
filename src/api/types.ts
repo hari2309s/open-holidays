@@ -13,7 +13,7 @@ export interface ICountry {
     officialLanguages: string[];
 }
 
-export interface IPublicHolidaysRequestPayload {
+export interface IHolidaysRequestPayload {
     countryIsoCode: string;
     languageIsoCode?: string;
     validFrom: string;
@@ -31,4 +31,15 @@ export interface IPublicHoliday {
     startDate: string;
     subdivisions: Array<{ code: string; shortName: string }>;
     type: HolidayType.PUBLIC;
+}
+
+export interface ISchoolHoliday {
+    comment: Array<{ language: string; text: string }>;
+    endDate: string;
+    id: string;
+    name: Array<{ language: string; text: string }>;
+    nationwide: boolean;
+    startDate: string;
+    subdivisions: Array<{ code: string; shortName: string }>;
+    type: HolidayType.SCHOOL;
 }

@@ -14,6 +14,7 @@ import 'dayjs/locale/de';
 import { Button, Select } from '@mui/joy';
 import { getPublicHolidays } from '../store/features/public-holidays/publicHolidaysSlice';
 import { HolidayType } from '../api/types';
+import { getSchoolHolidays } from '../store/features/school-holidays/schoolHolidaysSlice';
 
 interface FormValues {
     country: string;
@@ -74,17 +75,31 @@ const Form = () => {
     };
 
     const handleButtonClick = () => {
-        dispatch(
-            getPublicHolidays({
-                countryIsoCode: formValues.country,
-                validFrom: formValues.fromValue
-                    ? formValues.fromValue?.format('YYYY-MM-DD')
-                    : startOfcurrentYear.format('YYYY-MM-DD'),
-                validTo: formValues.toValue
-                    ? formValues.toValue?.format('YYYY-MM-DD')
-                    : endOfcurrentYear.format('YYYY-MM-DD'),
-            }),
-        );
+        if (formValues.type === HolidayType.PUBLIC) {
+            dispatch(
+                getPublicHolidays({
+                    countryIsoCode: formValues.country,
+                    validFrom: formValues.fromValue
+                        ? formValues.fromValue?.format('YYYY-MM-DD')
+                        : startOfcurrentYear.format('YYYY-MM-DD'),
+                    validTo: formValues.toValue
+                        ? formValues.toValue?.format('YYYY-MM-DD')
+                        : endOfcurrentYear.format('YYYY-MM-DD'),
+                }),
+            );
+        } else {
+            dispatch(
+                getSchoolHolidays({
+                    countryIsoCode: formValues.country,
+                    validFrom: formValues.fromValue
+                        ? formValues.fromValue?.format('YYYY-MM-DD')
+                        : startOfcurrentYear.format('YYYY-MM-DD'),
+                    validTo: formValues.toValue
+                        ? formValues.toValue?.format('YYYY-MM-DD')
+                        : endOfcurrentYear.format('YYYY-MM-DD'),
+                }),
+            );
+        }
     };
 
     return (

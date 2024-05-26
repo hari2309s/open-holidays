@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import countryReducer from './features/countries/countriesSlice';
-import holidaysReducer from './features/public-holidays/publicHolidaysSlice';
+import publicHolidaysReducer from './features/public-holidays/publicHolidaysSlice';
+import schoolHolidaysReducer from './features/school-holidays/schoolHolidaysSlice';
 
 export const store = configureStore({
     reducer: {
         country: countryReducer,
-        publicHolidays: holidaysReducer,
+        publicHolidays: publicHolidaysReducer,
+        schoolHolidays: schoolHolidaysReducer,
     },
 });
 

@@ -19,6 +19,7 @@ const List = () => {
                 size="lg"
                 sx={{
                     minWidth: '70vw',
+                    minHeight: '400px',
                     maxHeight: '400px',
                     margin: '20px 0',
                     backgroundColor: '#006d77',
