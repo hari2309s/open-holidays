@@ -12,9 +12,16 @@ import dayjs, { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import 'dayjs/locale/de';
 import { Button, Option, Select } from '@mui/joy';
-import { getPublicHolidays } from '../store/features/public-holidays/publicHolidaysSlice';
+import {
+    getPublicHolidays,
+    selectPublicHolidaysLoading,
+} from '../store/features/public-holidays/publicHolidaysSlice';
 import { HolidayType } from '../api/types';
-import { getSchoolHolidays } from '../store/features/school-holidays/schoolHolidaysSlice';
+import {
+    getSchoolHolidays,
+    selectSchoolHolidaysLoading,
+} from '../store/features/school-holidays/schoolHolidaysSlice';
+import { setCountry, setHolidayType } from '../store/features/ui/uiSlice';
 
 interface FormValues {
     country: string;
@@ -37,7 +44,10 @@ const Form = () => {
     const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
 
     const dispatch: AppDispatch = useDispatch();
+
     const countries = useSelector(selectCountries);
+    const publicHolidaysLoading = useSelector(selectPublicHolidaysLoading);
+    const schoolHolidaysLoading = useSelector(selectSchoolHolidaysLoading);
 
     useEffect(() => {
         dispatch(getCountries());
@@ -48,6 +58,7 @@ const Form = () => {
             ...formValues,
             country: value,
         }));
+        dispatch(setCountry(value));
     };
 
     const handleFromValueChange = (value: Dayjs | null) => {
@@ -72,6 +83,7 @@ const Form = () => {
             ...formValues,
             type: newValue as HolidayType,
         }));
+        dispatch(setHolidayType(newValue as HolidayType));
     };
 
     const handleButtonClick = () => {
@@ -154,6 +166,7 @@ const Form = () => {
                     size="lg"
                     onClick={handleButtonClick}
                     sx={{ backgroundColor: '#006d77', minHeight: '56px' }}
+                    loading={publicHolidaysLoading || schoolHolidaysLoading}
                 >
                     Show
                 </Button>
