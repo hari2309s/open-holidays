@@ -4,6 +4,7 @@ export enum PublicHolidayQuality {
 
 export enum HolidayType {
     PUBLIC = 'Public',
+    SCHOOL = 'School',
 }
 
 export interface ICountry {

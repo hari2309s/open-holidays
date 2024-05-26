@@ -11,12 +11,10 @@ export const getCountries = async () => {
 
 export const getPublicHolidays = async ({
     countryIsoCode,
-    languageIsoCode,
     validFrom,
     validTo,
 }: IPublicHolidaysRequestPayload) => {
-    const publicHolidaysURL = `${API_BASE_URL}/PublicHolidays?countryIsoCode=${countryIsoCode}
-    &languageIsoCode=${languageIsoCode}&validFrom=${validFrom}&validTo=${validTo}`;
+    const publicHolidaysURL = `${API_BASE_URL}/PublicHolidays?countryIsoCode=${countryIsoCode}&validFrom=${validFrom}&validTo=${validTo}`;
     return await fetch(publicHolidaysURL)
         .then(data => data.json())
         .catch(error => {

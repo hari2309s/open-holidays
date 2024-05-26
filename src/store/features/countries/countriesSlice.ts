@@ -59,9 +59,9 @@ export const countriesSlice = createSlice({
     },
 });
 
-export const selectCountries = (state: RootState) => state.countries.countries;
+export const selectCountries = (state: RootState) => state.country.countries;
 export const selectCountriesLoading = (state: RootState) =>
-    state.countries.loading;
-export const selectCountriesError = (state: RootState) => state.countries.error;
+    state.country.loading;
+export const selectCountriesError = (state: RootState) => state.country.error;
 
 export default countriesSlice.reducer;

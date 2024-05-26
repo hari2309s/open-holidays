@@ -26,18 +26,12 @@ const initialState: PublicHolidaysState = {
 export const getPublicHolidays = createAsyncThunk(
     'publicHolidays/getPublicHolidays',
     async (
-        {
-            countryIsoCode,
-            languageIsoCode,
-            validFrom,
-            validTo,
-        }: IPublicHolidaysRequestPayload,
+        { countryIsoCode, validFrom, validTo }: IPublicHolidaysRequestPayload,
         { rejectWithValue },
     ) => {
         try {
             const response = await getPublicHolidaysAPI({
                 countryIsoCode,
-                languageIsoCode,
                 validFrom,
                 validTo,
             });
