@@ -11,6 +11,7 @@ import {
 import { selectCountry, selectHolidayType } from '../store/features/ui/uiSlice';
 import { HolidayType } from '../api/types';
 import { selectSchoolHolidays } from '../store/features/school-holidays/schoolHolidaysSlice';
+import dayjs from 'dayjs';
 
 const List = () => {
     const publicHolidays = useSelector(selectPublicHolidays);
@@ -32,7 +33,7 @@ const List = () => {
                     minHeight: '400px',
                     maxHeight: '400px',
                     margin: '20px 0',
-                    backgroundColor: '#006d77',
+                    //backgroundColor: '#006d77',
                     borderRadius: 'sm',
                     overflow: 'scroll',
                 }}
@@ -47,15 +48,43 @@ const List = () => {
                                 padding: '10px',
                             }}
                         >
-                            <Typography sx={{ color: '#edf6f9' }}>
-                                {
-                                    holiday.name.filter(
-                                        entry => entry.language === 'EN',
-                                    )[0].text
-                                }
-                            </Typography>
+                            <div
+                                style={{
+                                    width: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                }}
+                            >
+                                <Typography sx={{ color: '#006d77' }}>
+                                    {
+                                        holiday.name.filter(
+                                            entry => entry.language === 'EN',
+                                        )[0].text
+                                    }
+                                </Typography>
+                                <div
+                                    style={{
+                                        width: '200px',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                    }}
+                                >
+                                    <Typography sx={{ color: '#006d77' }}>
+                                        {dayjs(holiday.endDate).diff(
+                                            dayjs(holiday.startDate),
+                                        ) +
+                                            1 +
+                                            ' day(s)'}
+                                    </Typography>
+                                    <Typography sx={{ color: '#006d77' }}>
+                                        {holiday.nationwide
+                                            ? 'National'
+                                            : 'Local'}
+                                    </Typography>
+                                </div>
+                            </div>
                             <ListDivider
-                                sx={{ backgroundColor: '#edf6f9' }}
+                                sx={{ backgroundColor: '#006d77' }}
                                 inset="gutter"
                             />
                         </ListItem>
@@ -70,15 +99,22 @@ const List = () => {
                                 padding: '10px',
                             }}
                         >
-                            <Typography sx={{ color: '#edf6f9' }}>
+                            <Typography sx={{ color: '#006d77' }}>
                                 {
                                     holiday.name.filter(
                                         entry => entry.language === 'EN',
                                     )[0].text
                                 }
                             </Typography>
+                            <Typography sx={{ color: '#006d77' }}>
+                                {dayjs(holiday.endDate).diff(
+                                    dayjs(holiday.startDate),
+                                    'day',
+                                    true,
+                                )}
+                            </Typography>
                             <ListDivider
-                                sx={{ backgroundColor: '#edf6f9' }}
+                                sx={{ backgroundColor: '#006d77' }}
                                 inset="gutter"
                             />
                         </ListItem>
