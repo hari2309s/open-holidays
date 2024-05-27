@@ -43,3 +43,7 @@ export interface ISchoolHoliday {
     subdivisions: Array<{ code: string; shortName: string }>;
     type: HolidayType.SCHOOL;
 }
+
+export enum IHoliday {
+    CHRISTMAS_HOLIDAYS = 'Christmas Holidays',
+}

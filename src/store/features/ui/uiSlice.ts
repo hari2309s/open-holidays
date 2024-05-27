@@ -17,11 +17,9 @@ export const UiSlice = createSlice({
     initialState,
     reducers: {
         setCountry: (state, action: PayloadAction<string>) => {
-            console.log('action ', action);
             state.country = action.payload;
         },
         setHolidayType: (state, action: PayloadAction<string>) => {
-            console.log('action11 ', action);
             state.holidayType = action.payload;
         },
     },

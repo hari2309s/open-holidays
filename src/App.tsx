@@ -10,7 +10,7 @@ function App() {
         <div className="App">
             <Header>
                 <Typography level="h2" sx={{ color: '#006d77' }}>
-                    Open Holidays
+                    Holidays
                 </Typography>
             </Header>
             <Container>
@@ -22,17 +22,17 @@ function App() {
 }
 
 const Container = styled.div({
-    width: '70vw',
+    width: '90vw',
     display: 'flex',
     flexDirection: 'column',
-    margin: '40px 40px 0',
+    margin: '40px 0 0',
 });
 
 const Header = styled.div({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    margin: '40px',
+    margin: '40px 0 auto',
 });
 
 export default App;

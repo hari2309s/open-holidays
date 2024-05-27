@@ -51,6 +51,24 @@ const Form = () => {
 
     useEffect(() => {
         dispatch(getCountries());
+        if (
+            formValues.country &&
+            formValues.fromValue &&
+            formValues.toValue &&
+            formValues.type
+        ) {
+            dispatch(
+                getPublicHolidays({
+                    countryIsoCode: formValues.country,
+                    validFrom: formValues.fromValue
+                        ? formValues.fromValue?.format('YYYY-MM-DD')
+                        : startOfcurrentYear.format('YYYY-MM-DD'),
+                    validTo: formValues.toValue
+                        ? formValues.toValue?.format('YYYY-MM-DD')
+                        : endOfcurrentYear.format('YYYY-MM-DD'),
+                }),
+            );
+        }
     }, []);
 
     const handleCountryChange = (value: string) => {
@@ -58,7 +76,13 @@ const Form = () => {
             ...formValues,
             country: value,
         }));
-        dispatch(setCountry(value));
+        dispatch(
+            setCountry(
+                countries
+                    .filter(country => country.isoCode === value)[0]
+                    .name.filter(item => item.language === 'EN')[0].text,
+            ),
+        );
     };
 
     const handleFromValueChange = (value: Dayjs | null) => {

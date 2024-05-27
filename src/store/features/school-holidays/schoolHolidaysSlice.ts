@@ -7,6 +7,7 @@ import {
 import { IHolidaysRequestPayload, ISchoolHoliday } from '../../../api/types';
 import { getSchoolHolidays as getSchoolHolidaysAPI } from '../../../api/index';
 import { RootState } from '../..';
+import { normalizeSchoolHolidays } from '../../../helper';
 
 interface SchoolHolidaysState {
     schoolHolidays: ISchoolHoliday[];
@@ -32,6 +33,8 @@ export const getSchoolHolidays = createAsyncThunk(
                 validFrom,
                 validTo,
             });
+
+            normalizeSchoolHolidays(response);
             return response as ISchoolHoliday[];
         } catch (error) {
             return rejectWithValue(error);
