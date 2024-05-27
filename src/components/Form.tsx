@@ -76,13 +76,6 @@ const Form = () => {
             ...formValues,
             country: value,
         }));
-        dispatch(
-            setCountry(
-                countries
-                    .filter(country => country.isoCode === value)[0]
-                    .name.filter(item => item.language === 'EN')[0].text,
-            ),
-        );
     };
 
     const handleFromValueChange = (value: Dayjs | null) => {
@@ -107,10 +100,20 @@ const Form = () => {
             ...formValues,
             type: newValue as HolidayType,
         }));
-        dispatch(setHolidayType(newValue as HolidayType));
     };
 
     const handleButtonClick = () => {
+        dispatch(
+            setCountry(
+                countries
+                    .filter(
+                        country => country.isoCode === formValues.country,
+                    )[0]
+                    .name.filter(item => item.language === 'EN')[0].text,
+            ),
+        );
+        dispatch(setHolidayType(formValues.type));
+
         if (formValues.type === HolidayType.PUBLIC) {
             dispatch(
                 getPublicHolidays({

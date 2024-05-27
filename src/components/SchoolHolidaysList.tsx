@@ -48,7 +48,9 @@ const SchoolHolidaysList = () => {
                                     justifyContent: 'space-between',
                                 }}
                             >
-                                <Typography sx={{ color: '#006d77' }}>
+                                <Typography
+                                    sx={{ color: '#006d77', textAlign: 'left' }}
+                                >
                                     {
                                         holiday.name.filter(
                                             entry => entry.language === 'EN',
