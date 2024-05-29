@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IHoliday, ISchoolHoliday } from './api/types';
+import { Holiday, ISchoolHoliday } from './api/types';
 
 export const normalizeSchoolHolidays = (
     schoolHolidays: ISchoolHoliday[],
 ): ISchoolHoliday[] => {
     const groupedByHolidays = groupByHoliday(
         schoolHolidays,
-        IHoliday.CHRISTMAS_HOLIDAYS,
+        Holiday.CHRISTMAS_HOLIDAYS,
     );
 
     return groupedByHolidays.length > 0
@@ -16,7 +16,7 @@ export const normalizeSchoolHolidays = (
 
 export const groupByHoliday = (
     schoolHolidays: ISchoolHoliday[],
-    holiday: IHoliday,
+    holiday: Holiday,
 ): ISchoolHoliday[] => {
     return schoolHolidays.filter(schoolHoliday => {
         return (

@@ -4,10 +4,12 @@ import styled from '@emotion/styled';
 import Form from './components/Form';
 import { Typography } from '@mui/joy';
 import List from './components/List';
+import LanguageHeader from './components/LanguageHeader';
 
 function App() {
     return (
         <div className="App">
+            <LanguageHeader />
             <Header>
                 <Typography level="h2" sx={{ color: '#006d77' }}>
                     Holidays

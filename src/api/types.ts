@@ -7,6 +7,21 @@ export enum HolidayType {
     SCHOOL = 'School',
 }
 
+export enum LanguageCode {
+    EN = 'EN',
+    DE = 'DE',
+}
+
+export enum LanguageText {
+    EN = 'English',
+    DE = 'German',
+}
+
+export interface ILanguage {
+    languageCode: LanguageCode;
+    languageText: LanguageText;
+}
+
 export interface ICountry {
     isoCode: string;
     name: Array<{ language: string; text: string }>;
@@ -44,6 +59,6 @@ export interface ISchoolHoliday {
     type: HolidayType.SCHOOL;
 }
 
-export enum IHoliday {
+export enum Holiday {
     CHRISTMAS_HOLIDAYS = 'Christmas Holidays',
 }
