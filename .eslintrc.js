@@ -28,8 +28,4 @@ module.exports = {
     },
     plugins: ['@typescript-eslint', 'react'],
     rules: {},
-    include: [
-        // process only spec files
-        'cypress/**/*.ts',
-    ],
 };
