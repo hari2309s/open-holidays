@@ -41,7 +41,7 @@ const Header = styled.div({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    margin: '40px 0 auto',
+    margin: '10px 0 auto',
 });
 
 export default App;

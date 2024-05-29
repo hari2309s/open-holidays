@@ -56,6 +56,7 @@ const Form = () => {
 
     useEffect(() => {
         dispatch(getCountries());
+
         if (
             formValues.country &&
             formValues.fromValue &&
@@ -75,6 +76,23 @@ const Form = () => {
             );
         }
     }, []);
+
+    useEffect(() => {
+        if (countries.length > 0 && formValues.country) {
+            dispatch(
+                setCountry(
+                    countries
+                        .filter(
+                            country => country.isoCode === formValues.country,
+                        )[0]
+                        .name.filter(
+                            item =>
+                                item.language === currentLanguage.languageCode,
+                        )[0].text,
+                ),
+            );
+        }
+    }, [currentLanguage]);
 
     const handleCountryChange = (value: string) => {
         setFormValues(formValues => ({
@@ -114,7 +132,9 @@ const Form = () => {
                     .filter(
                         country => country.isoCode === formValues.country,
                     )[0]
-                    .name.filter(item => item.language === 'EN')[0].text,
+                    .name.filter(
+                        item => item.language === currentLanguage.languageCode,
+                    )[0].text,
             ),
         );
         dispatch(setHolidayType(formValues.type));

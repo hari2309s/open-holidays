@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, Typography } from '@mui/joy';
 import {
@@ -15,20 +15,26 @@ const List = () => {
     const selectedHolidayType = useSelector(selectHolidayType);
     const currentLanguage = useSelector(selectLanguage);
 
-    const translatedHolidayType =
-        selectedHolidayType === HolidayType.PUBLIC
-            ? currentLanguage.languageCode === LanguageCode.EN
-                ? 'Public holidays'
-                : 'Feiertage'
-            : currentLanguage.languageCode === LanguageCode.EN
-              ? 'School holidays'
-              : 'Schulferien';
+    const [translatedHolidayType, setTranslatedHolidayType] =
+        useState<string>('');
+
+    useEffect(() => {
+        setTranslatedHolidayType(
+            selectedHolidayType === HolidayType.PUBLIC
+                ? currentLanguage.languageCode === LanguageCode.EN
+                    ? 'Public holidays'
+                    : 'Feiertage'
+                : currentLanguage.languageCode === LanguageCode.EN
+                  ? 'School holidays'
+                  : 'Schulferien',
+        );
+    }, [currentLanguage, selectedHolidayType]);
 
     return (
         <Box>
             <Typography
                 level="h4"
-                sx={{ color: '#006d77', marginTop: '15px' }}
+                sx={{ color: '#006d77', margin: '30px 0' }}
             >{`${translatedHolidayType} in ${selectedCountry}`}</Typography>
             {selectedHolidayType === HolidayType.PUBLIC && (
                 <PublicHolidaysList />

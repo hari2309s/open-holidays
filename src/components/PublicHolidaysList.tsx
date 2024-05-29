@@ -53,12 +53,13 @@ const PublicHolidaysList = () => {
                                 <Typography
                                     sx={{ color: '#006d77', textAlign: 'left' }}
                                 >
-                                    {`${holiday.name.filter(
-                                        entry =>
-                                            entry.language ===
-                                            language.languageCode,
-                                    )[0].text
-                                        }`}
+                                    {`${
+                                        holiday.name.filter(
+                                            entry =>
+                                                entry.language ===
+                                                language.languageCode,
+                                        )[0].text
+                                    }`}
                                 </Typography>
                                 <div
                                     style={{
