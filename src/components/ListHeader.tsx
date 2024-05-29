@@ -1,7 +1,12 @@
 import { ListSubheader } from '@mui/joy';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from '../store/features/ui/uiSlice';
+import { LanguageCode } from '../api/types';
 
 const ListHeader = () => {
+    const currentLanguage = useSelector(selectLanguage);
+
     return (
         <div
             style={{
@@ -25,7 +30,11 @@ const ListHeader = () => {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <ListSubheader sticky>Holidays</ListSubheader>
+                    <ListSubheader sticky>
+                        {currentLanguage.languageCode === LanguageCode.EN
+                            ? 'Holidays'
+                            : 'Ferientag'}
+                    </ListSubheader>
                     <div
                         style={{
                             width: '200px',
@@ -43,8 +52,16 @@ const ListHeader = () => {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <ListSubheader sticky>Duration</ListSubheader>
-                    <ListSubheader sticky>Type</ListSubheader>
+                    <ListSubheader sticky>
+                        {currentLanguage.languageCode === LanguageCode.EN
+                            ? 'Duration'
+                            : 'Laufzeit'}
+                    </ListSubheader>
+                    <ListSubheader sticky>
+                        {currentLanguage.languageCode === LanguageCode.EN
+                            ? 'Type'
+                            : 'Typ'}
+                    </ListSubheader>
                 </div>
             </div>
         </div>

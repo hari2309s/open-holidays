@@ -1,6 +1,8 @@
 import { Option, Select } from '@mui/joy';
 import React from 'react';
 import { ICountry } from '../api/types';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from '../store/features/ui/uiSlice';
 
 interface SelectInputProps {
     placeholder: string;
@@ -19,6 +21,8 @@ const SelectInput = ({
     options,
     onChange,
 }: SelectInputProps) => {
+    const language = useSelector(selectLanguage);
+
     const handleChange = (
         event: React.SyntheticEvent | null,
         newValue: string | null,
@@ -41,8 +45,9 @@ const SelectInput = ({
             {options.map(option => (
                 <Option value={option.isoCode} key={option.isoCode}>
                     {
-                        option.name.filter(entry => entry.language === 'EN')[0]
-                            .text
+                        option.name.filter(
+                            entry => entry.language === language.languageCode,
+                        )[0].text
                     }
                 </Option>
             ))}

@@ -16,12 +16,16 @@ import {
     getPublicHolidays,
     selectPublicHolidaysLoading,
 } from '../store/features/public-holidays/publicHolidaysSlice';
-import { HolidayType } from '../api/types';
+import { HolidayType, LanguageCode } from '../api/types';
 import {
     getSchoolHolidays,
     selectSchoolHolidaysLoading,
 } from '../store/features/school-holidays/schoolHolidaysSlice';
-import { setCountry, setHolidayType } from '../store/features/ui/uiSlice';
+import {
+    selectLanguage,
+    setCountry,
+    setHolidayType,
+} from '../store/features/ui/uiSlice';
 
 interface FormValues {
     country: string;
@@ -48,6 +52,7 @@ const Form = () => {
     const countries = useSelector(selectCountries);
     const publicHolidaysLoading = useSelector(selectPublicHolidaysLoading);
     const schoolHolidaysLoading = useSelector(selectSchoolHolidaysLoading);
+    const currentLanguage = useSelector(selectLanguage);
 
     useEffect(() => {
         dispatch(getCountries());
@@ -182,10 +187,14 @@ const Form = () => {
                     }}
                 >
                     <Option value={HolidayType.PUBLIC}>
-                        {HolidayType.PUBLIC + ' holidays'}
+                        {currentLanguage.languageCode === LanguageCode.EN
+                            ? 'Public holidays'
+                            : 'Feiertage'}
                     </Option>
                     <Option value={HolidayType.SCHOOL}>
-                        {HolidayType.SCHOOL + ' holidays'}
+                        {currentLanguage.languageCode === LanguageCode.EN
+                            ? 'School holidays'
+                            : 'Schulferien'}
                     </Option>
                 </Select>
                 <Button
@@ -195,7 +204,9 @@ const Form = () => {
                     sx={{ backgroundColor: '#006d77', minHeight: '56px' }}
                     loading={publicHolidaysLoading || schoolHolidaysLoading}
                 >
-                    Show
+                    {currentLanguage.languageCode === LanguageCode.EN
+                        ? 'Show'
+                        : 'Anzeigen'}
                 </Button>
             </Container>
         </LocalizationProvider>

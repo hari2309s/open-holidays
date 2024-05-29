@@ -4,9 +4,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectPublicHolidays } from '../store/features/public-holidays/publicHolidaysSlice';
 import ListHeader from './ListHeader';
+import { selectLanguage } from '../store/features/ui/uiSlice';
 
 const PublicHolidaysList = () => {
     const publicHolidays = useSelector(selectPublicHolidays);
+    const language = useSelector(selectLanguage);
 
     return (
         <div>
@@ -51,11 +53,12 @@ const PublicHolidaysList = () => {
                                 <Typography
                                     sx={{ color: '#006d77', textAlign: 'left' }}
                                 >
-                                    {
-                                        holiday.name.filter(
-                                            entry => entry.language === 'EN',
-                                        )[0].text
-                                    }
+                                    {`${holiday.name.filter(
+                                        entry =>
+                                            entry.language ===
+                                            language.languageCode,
+                                    )[0].text
+                                        }`}
                                 </Typography>
                                 <div
                                     style={{

@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Open Holidays. UI for holidays from [OpenHolidays API](https://www.openholidaysapi.org/en/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Stack
+
+-   TypeScript
+-   React 18
+-   Redux Toolkit
+-   Emotion
+-   Joy UI
+-   GitHub Pages
 
 ## Available Scripts
 
@@ -41,6 +48,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can learn more about the API behind it here - https://www.openholidaysapi.org/en/

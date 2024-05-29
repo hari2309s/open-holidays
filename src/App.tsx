@@ -5,14 +5,21 @@ import Form from './components/Form';
 import { Typography } from '@mui/joy';
 import List from './components/List';
 import LanguageHeader from './components/LanguageHeader';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from './store/features/ui/uiSlice';
+import { LanguageCode } from './api/types';
 
 function App() {
+    const currentLanguage = useSelector(selectLanguage);
+
     return (
         <div className="App">
             <LanguageHeader />
             <Header>
                 <Typography level="h2" sx={{ color: '#006d77' }}>
-                    Holidays
+                    {currentLanguage.languageCode === LanguageCode.EN
+                        ? 'Holidays'
+                        : 'Feiertage'}
                 </Typography>
             </Header>
             <Container>
