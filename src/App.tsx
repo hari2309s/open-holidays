@@ -8,6 +8,7 @@ import LanguageHeader from './components/LanguageHeader';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from './store/features/ui/uiSlice';
 import { LanguageCode } from './api/types';
+import christmasIcon1 from '../src/assets/icon-christmas-1.png';
 
 function App() {
     const currentLanguage = useSelector(selectLanguage);
@@ -16,11 +17,17 @@ function App() {
         <div className="App">
             <LanguageHeader />
             <Header>
-                <Typography level="h2" sx={{ color: '#006d77' }}>
-                    {currentLanguage.languageCode === LanguageCode.EN
-                        ? 'Holidays'
-                        : 'Feiertage'}
-                </Typography>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <img src={christmasIcon1} alt="holidays" height="35px" />
+                    <Typography
+                        level="h2"
+                        sx={{ color: '#006d77', marginLeft: '20px' }}
+                    >
+                        {currentLanguage.languageCode === LanguageCode.EN
+                            ? 'Holidays'
+                            : 'Feiertage'}
+                    </Typography>
+                </div>
             </Header>
             <Container>
                 <Form />
