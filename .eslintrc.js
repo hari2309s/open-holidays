@@ -8,6 +8,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:react/recommended',
         'prettier',
+        'plugin:cypress/recommended',
     ],
     overrides: [
         {
@@ -27,4 +28,8 @@ module.exports = {
     },
     plugins: ['@typescript-eslint', 'react'],
     rules: {},
+    include: [
+        // process only spec files
+        'cypress/**/*.ts',
+    ],
 };

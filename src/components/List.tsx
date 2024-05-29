@@ -33,6 +33,7 @@ const List = () => {
     return (
         <Box>
             <Typography
+                data-testid="list-header"
                 level="h4"
                 sx={{ color: '#006d77', margin: '30px 0' }}
             >{`${translatedHolidayType} in ${selectedCountry}`}</Typography>

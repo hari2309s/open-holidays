@@ -196,6 +196,7 @@ const Form = () => {
                 <Select
                     placeholder="Select holiday type"
                     name="holiday-type-select"
+                    data-testid="holiday-type-selector"
                     defaultValue={HolidayType.PUBLIC}
                     value={formValues.type}
                     onChange={handleTypeChange}
@@ -219,6 +220,7 @@ const Form = () => {
                 </Select>
                 <Button
                     variant="solid"
+                    data-testid="show-button"
                     size="lg"
                     onClick={handleButtonClick}
                     sx={{ backgroundColor: '#006d77', minHeight: '56px' }}

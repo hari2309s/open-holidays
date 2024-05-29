@@ -27,6 +27,7 @@ const LanguageHeader = () => {
             defaultValue={LanguageCode.EN}
             sx={{ margin: '10px 75px', alignSelf: 'end', minWidth: '100px' }}
             onChange={handleLanguageChange}
+            data-testid="language-selector"
         >
             <Option value={LanguageCode.EN}>{LanguageText.EN}</Option>
             <Option value={LanguageCode.DE}>{LanguageText.DE}</Option>

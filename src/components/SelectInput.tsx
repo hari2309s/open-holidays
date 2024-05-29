@@ -36,6 +36,7 @@ const SelectInput = ({
         <Select
             placeholder={placeholder}
             name={name}
+            data-testid="country-selector"
             defaultValue={defaultValue}
             value={value}
             onChange={handleChange}

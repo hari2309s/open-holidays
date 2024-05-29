@@ -17,17 +17,16 @@ function App() {
         <div className="App">
             <LanguageHeader />
             <Header>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img src={christmasIcon1} alt="holidays" height="35px" />
-                    <Typography
-                        level="h2"
-                        sx={{ color: '#006d77', marginLeft: '20px' }}
-                    >
-                        {currentLanguage.languageCode === LanguageCode.EN
-                            ? 'Holidays'
-                            : 'Feiertage'}
-                    </Typography>
-                </div>
+                <img src={christmasIcon1} alt="holidays" height="35px" />
+                <Typography
+                    data-testid="app-title"
+                    level="h2"
+                    sx={{ color: '#006d77', marginLeft: '20px' }}
+                >
+                    {currentLanguage.languageCode === LanguageCode.EN
+                        ? 'Holidays'
+                        : 'Feiertage'}
+                </Typography>
             </Header>
             <Container>
                 <Form />
@@ -46,8 +45,7 @@ const Container = styled.div({
 
 const Header = styled.div({
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    justifyContent: 'center',
     margin: '10px 0 auto',
 });
 

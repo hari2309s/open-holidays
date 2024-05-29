@@ -30,7 +30,7 @@ const ListHeader = () => {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <ListSubheader sticky>
+                    <ListSubheader sticky data-testid="list-subheader-holidays">
                         {currentLanguage.languageCode === LanguageCode.EN
                             ? 'Holidays'
                             : 'Ferientag'}
@@ -42,7 +42,12 @@ const ListHeader = () => {
                             justifyContent: 'center',
                         }}
                     >
-                        <ListSubheader sticky>Dates</ListSubheader>
+                        <ListSubheader
+                            sticky
+                            data-testid="list-subheader-dates"
+                        >
+                            Dates
+                        </ListSubheader>
                     </div>
                 </div>
                 <div
@@ -52,12 +57,12 @@ const ListHeader = () => {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <ListSubheader sticky>
+                    <ListSubheader sticky data-testid="list-subheader-duration">
                         {currentLanguage.languageCode === LanguageCode.EN
                             ? 'Duration'
                             : 'Laufzeit'}
                     </ListSubheader>
-                    <ListSubheader sticky>
+                    <ListSubheader sticky data-testid="list-subheader-type">
                         {currentLanguage.languageCode === LanguageCode.EN
                             ? 'Type'
                             : 'Typ'}
