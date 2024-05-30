@@ -44,7 +44,11 @@ const SelectInput = ({
             sx={{ minWidth: '230px', minHeight: '56px', marginRight: '15px' }}
         >
             {options.map(option => (
-                <Option value={option.isoCode} key={option.isoCode}>
+                <Option
+                    value={option.isoCode}
+                    key={option.isoCode}
+                    data-testid={`option-${option.isoCode}`}
+                >
                     {
                         option.name.filter(
                             entry => entry.language === language.languageCode,

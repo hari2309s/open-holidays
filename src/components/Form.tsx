@@ -207,12 +207,18 @@ const Form = () => {
                         marginRight: '15px',
                     }}
                 >
-                    <Option value={HolidayType.PUBLIC}>
+                    <Option
+                        value={HolidayType.PUBLIC}
+                        data-testid={`option-${HolidayType.PUBLIC}`}
+                    >
                         {currentLanguage.languageCode === LanguageCode.EN
                             ? 'Public holidays'
                             : 'Feiertage'}
                     </Option>
-                    <Option value={HolidayType.SCHOOL}>
+                    <Option
+                        value={HolidayType.SCHOOL}
+                        data-testid={`option-${HolidayType.SCHOOL}`}
+                    >
                         {currentLanguage.languageCode === LanguageCode.EN
                             ? 'School holidays'
                             : 'Schulferien'}

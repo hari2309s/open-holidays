@@ -97,22 +97,35 @@ describe('Open holidays application', () => {
             .should('be.visible');
     });
 
-    // it.only('using form elements to get new set of results', () => {
-    //     cy.visit('/');
+    it('using form elements to get new set of results', () => {
+        cy.visit('/');
 
-    //     cy.get('[data-testid="country-selector"]').click();
-    //     cy.get('[data-testid="option-AT"]').contains('Austria').click();
-    //     cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root')
-    //         .get('input')
-    //         .type('01.01.2022');
-    //     cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root')
-    //         .get('input')
-    //         .type('31.12.2023');
-    //     // cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root').should(
-    //     //     'have.length',
-    //     //     2,
-    //     // );
-    //     // cy.get('[data-testid="holiday-type-selector"]').should('be.visible');
-    //     // cy.get('[data-testid="show-button"]').should('be.visible');
-    // });
+        cy.get('[data-testid="country-selector"]').click();
+        cy.get('[data-testid="option-AT"]').contains('Austria').click();
+        cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root')
+            .eq(0)
+            .type('01.01.2022');
+        cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root')
+            .eq(1)
+            .type('31.12.2023');
+        cy.get('[data-testid="show-button"]').click();
+
+        // list header
+        cy.get('[data-testid="list-header"]')
+            .contains('Public holidays in Austria')
+            .should('be.visible');
+
+        // change holiday type from the drop down
+        cy.get('[data-testid="holiday-type-selector"]').click();
+        cy.get('[data-testid="option-School"]')
+            .contains('School holidays')
+            .click();
+
+        cy.get('[data-testid="show-button"]').click();
+
+        // list header
+        cy.get('[data-testid="list-header"]')
+            .contains('School holidays in Austria')
+            .should('be.visible');
+    });
 });
