@@ -1,5 +1,5 @@
 describe('Open holidays application', () => {
-    it('opens homepage', () => {
+    it('opens homepage and renders elements, and their values correctly', () => {
         cy.visit('/');
 
         // language selector
@@ -23,9 +23,7 @@ describe('Open holidays application', () => {
         cy.get('[data-testid="show-button"]').should('be.visible');
 
         // list header
-        cy.get('[data-testid="list-header"]')
-            .contains('Public holidays in Germany')
-            .should('be.visible');
+        cy.get('[data-testid="list-header"]').should('be.visible');
 
         // list sub headers
         cy.get('[data-testid="list-subheader-holidays"]')
@@ -39,6 +37,17 @@ describe('Open holidays application', () => {
             .should('be.visible');
         cy.get('[data-testid="list-subheader-type"]')
             .contains('Type')
+            .should('be.visible');
+
+        // renders public holidays for Germany by default
+        // list header
+        cy.get('[data-testid="list-header"]')
+            .contains('Public holidays in Germany')
+            .should('be.visible');
+
+        // list item
+        cy.get('[data-testid="holiday-list-item"]')
+            .contains(`New Year's Day`)
             .should('be.visible');
     });
 });

@@ -14,6 +14,7 @@ const PublicHolidaysList = () => {
         <div>
             <ListHeader />
             <List
+                data-testid="public-holidays-list"
                 variant="outlined"
                 size="lg"
                 sx={{
@@ -52,6 +53,7 @@ const PublicHolidaysList = () => {
                             >
                                 <Typography
                                     sx={{ color: '#006d77', textAlign: 'left' }}
+                                    data-testid="holiday-list-item"
                                 >
                                     {`${
                                         holiday.name.filter(
