@@ -8,6 +8,7 @@
 -   Emotion
 -   Joy UI
 -   GitHub Pages
+-   Cypress
 
 ## Available Scripts
 
