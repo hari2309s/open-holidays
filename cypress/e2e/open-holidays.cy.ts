@@ -50,4 +50,69 @@ describe('Open holidays application', () => {
             .contains(`New Year's Day`)
             .should('be.visible');
     });
+
+    it('choosing German from language dropdown translates the content of the application to German', () => {
+        cy.visit('/');
+
+        // select German from the drop down
+        cy.get('[data-testid="language-selector"]').click();
+        cy.get('[data-testid="option-de"]').contains('German').click();
+
+        // application title
+        cy.get('[data-testid="app-title"]')
+            .contains('Feiertage')
+            .should('to.be.visible');
+
+        // button text
+        cy.get('[data-testid="show-button"]')
+            .contains('Anzeigen')
+            .should('be.visible');
+
+        // list header
+        cy.get('[data-testid="list-header"]').should('be.visible');
+
+        // list sub headers
+        cy.get('[data-testid="list-subheader-holidays"]')
+            .contains('Ferientag')
+            .should('be.visible');
+        cy.get('[data-testid="list-subheader-dates"]')
+            .contains('Dates')
+            .should('be.visible');
+        cy.get('[data-testid="list-subheader-duration"]')
+            .contains('Laufzeit')
+            .should('be.visible');
+        cy.get('[data-testid="list-subheader-type"]')
+            .contains('Typ')
+            .should('be.visible');
+
+        // renders public holidays for Germany by default
+        // list header
+        cy.get('[data-testid="list-header"]')
+            .contains('Feiertage in Deutschland')
+            .should('be.visible');
+
+        // list item
+        cy.get('[data-testid="holiday-list-item"]')
+            .contains(`Neujahr`)
+            .should('be.visible');
+    });
+
+    // it.only('using form elements to get new set of results', () => {
+    //     cy.visit('/');
+
+    //     cy.get('[data-testid="country-selector"]').click();
+    //     cy.get('[data-testid="option-AT"]').contains('Austria').click();
+    //     cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root')
+    //         .get('input')
+    //         .type('01.01.2022');
+    //     cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root')
+    //         .get('input')
+    //         .type('31.12.2023');
+    //     // cy.get('.css-1w9oans-MuiFormControl-root-MuiTextField-root').should(
+    //     //     'have.length',
+    //     //     2,
+    //     // );
+    //     // cy.get('[data-testid="holiday-type-selector"]').should('be.visible');
+    //     // cy.get('[data-testid="show-button"]').should('be.visible');
+    // });
 });

@@ -29,8 +29,8 @@ const LanguageHeader = () => {
             onChange={handleLanguageChange}
             data-testid="language-selector"
         >
-            <Option value={LanguageCode.EN}>{LanguageText.EN}</Option>
-            <Option value={LanguageCode.DE}>{LanguageText.DE}</Option>
+            <Option value={LanguageCode.EN} data-testid='option-en'>{LanguageText.EN}</Option>
+            <Option value={LanguageCode.DE} data-testid='option-de'>{LanguageText.DE}</Option>
         </Select>
     );
 };
