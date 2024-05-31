@@ -59,10 +59,10 @@ export const schoolHolidaysSlice = createSlice({
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(getSchoolHolidays.rejected, state => {
+            .addCase(getSchoolHolidays.rejected, (state, action) => {
                 state.schoolHolidays = [];
                 state.loading = false;
-                state.error = null;
+                state.error = action.error;
             });
     },
 });
