@@ -183,7 +183,15 @@ const Form = () => {
                     value={formValues.fromValue}
                     views={['year', 'month', 'day']}
                     onChange={handleFromValueChange}
-                    sx={{ marginRight: '15px' }}
+                    sx={{
+                        marginRight: '15px',
+                        '@media (min-width: 320px)': {
+                            marginBottom: '20px',
+                            '> div > input': {
+                                height: '5px',
+                            },
+                        },
+                    }}
                 />
                 <DatePicker
                     name="to-value"
@@ -191,7 +199,15 @@ const Form = () => {
                     value={formValues.toValue}
                     views={['year', 'month', 'day']}
                     onChange={handleToValueChange}
-                    sx={{ marginRight: '15px' }}
+                    sx={{
+                        marginRight: '15px',
+                        '@media (min-width: 320px)': {
+                            marginBottom: '20px',
+                            '> div > input': {
+                                height: '5px',
+                            },
+                        },
+                    }}
                 />
                 <Select
                     placeholder="Select holiday type"
@@ -205,6 +221,9 @@ const Form = () => {
                         minWidth: '230px',
                         minHeight: '56px',
                         marginRight: '15px',
+                        '@media (min-width: 320px)': {
+                            minHeight: '36px',
+                        },
                     }}
                 >
                     <Option
@@ -229,7 +248,13 @@ const Form = () => {
                     data-testid="show-button"
                     size="lg"
                     onClick={handleButtonClick}
-                    sx={{ backgroundColor: '#006d77', minHeight: '56px' }}
+                    sx={{
+                        backgroundColor: '#006d77',
+                        minHeight: '56px',
+                        '@media (min-width: 320px)': {
+                            minHeight: '36px',
+                        },
+                    }}
                     loading={publicHolidaysLoading || schoolHolidaysLoading}
                 >
                     {currentLanguage.languageCode === LanguageCode.EN
@@ -245,6 +270,13 @@ const Container = styled.div({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+
+    '@media (min-width: 320px)': {
+        flexDirection: 'column',
+        '> *': {
+            marginBottom: '20px',
+        },
+    },
 });
 
 export default Form;

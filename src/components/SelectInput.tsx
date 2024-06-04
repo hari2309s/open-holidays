@@ -41,7 +41,14 @@ const SelectInput = ({
             value={value}
             onChange={handleChange}
             size="lg"
-            sx={{ minWidth: '230px', minHeight: '56px', marginRight: '15px' }}
+            sx={{
+                minWidth: '230px',
+                minHeight: '56px',
+                marginRight: '15px',
+                '@media (min-width: 320px)': {
+                    minHeight: '36px',
+                },
+            }}
         >
             {options.map(option => (
                 <Option

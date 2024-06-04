@@ -25,7 +25,12 @@ const LanguageHeader = () => {
     return (
         <Select
             defaultValue={LanguageCode.EN}
-            sx={{ margin: '10px 75px', alignSelf: 'end', minWidth: '100px' }}
+            sx={{
+                margin: '10px 75px',
+                alignSelf: 'end',
+                minWidth: '100px',
+                '@media(min-width: 320px)': { alignSelf: 'center' },
+            }}
             onChange={handleLanguageChange}
             data-testid="language-selector"
         >
