@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/open-holidays/static/css/main.3c426c51.css",
-    "main.js": "/open-holidays/static/js/main.57b1f849.js",
+    "main.js": "/open-holidays/static/js/main.c70734eb.js",
     "static/js/453.423839a4.chunk.js": "/open-holidays/static/js/453.423839a4.chunk.js",
     "index.html": "/open-holidays/index.html",
     "main.3c426c51.css.map": "/open-holidays/static/css/main.3c426c51.css.map",
-    "main.57b1f849.js.map": "/open-holidays/static/js/main.57b1f849.js.map",
+    "main.c70734eb.js.map": "/open-holidays/static/js/main.c70734eb.js.map",
     "453.423839a4.chunk.js.map": "/open-holidays/static/js/453.423839a4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c426c51.css",
-    "static/js/main.57b1f849.js"
+    "static/js/main.c70734eb.js"
   ]
 }
