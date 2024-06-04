@@ -45,7 +45,7 @@ const SelectInput = ({
                 minWidth: '230px',
                 minHeight: '56px',
                 marginRight: '15px',
-                '@media (min-width: 320px)': {
+                '@media (min-width: 320px) and (max-width: 430px)': {
                     minHeight: '36px',
                 },
             }}

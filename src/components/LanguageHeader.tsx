@@ -29,7 +29,9 @@ const LanguageHeader = () => {
                 margin: '10px 75px',
                 alignSelf: 'end',
                 minWidth: '100px',
-                '@media(min-width: 320px)': { alignSelf: 'center' },
+                '@media(min-width: 320px) and (max-width: 430px)': {
+                    alignSelf: 'center',
+                },
             }}
             onChange={handleLanguageChange}
             data-testid="language-selector"

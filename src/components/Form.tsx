@@ -185,7 +185,7 @@ const Form = () => {
                     onChange={handleFromValueChange}
                     sx={{
                         marginRight: '15px',
-                        '@media (min-width: 320px)': {
+                        '@media (min-width: 320px) and (max-width: 430px)': {
                             marginBottom: '20px',
                             '> div > input': {
                                 height: '5px',
@@ -201,7 +201,7 @@ const Form = () => {
                     onChange={handleToValueChange}
                     sx={{
                         marginRight: '15px',
-                        '@media (min-width: 320px)': {
+                        '@media (min-width: 320px) and (max-width: 430px)': {
                             marginBottom: '20px',
                             '> div > input': {
                                 height: '5px',
@@ -221,7 +221,7 @@ const Form = () => {
                         minWidth: '230px',
                         minHeight: '56px',
                         marginRight: '15px',
-                        '@media (min-width: 320px)': {
+                        '@media (min-width: 320px) and (max-width: 430px)': {
                             minHeight: '36px',
                         },
                     }}
@@ -251,7 +251,7 @@ const Form = () => {
                     sx={{
                         backgroundColor: '#006d77',
                         minHeight: '56px',
-                        '@media (min-width: 320px)': {
+                        '@media (min-width: 320px) and (max-width: 430px)': {
                             minHeight: '36px',
                         },
                     }}
@@ -271,7 +271,7 @@ const Container = styled.div({
     justifyContent: 'center',
     alignItems: 'center',
 
-    '@media (min-width: 320px)': {
+    '@media (min-width: 320px) and (max-width: 430px)': {
         flexDirection: 'column',
         '> *': {
             marginBottom: '20px',
