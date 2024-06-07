@@ -60,6 +60,8 @@ const SchoolHolidaysList = () => {
                             <td>
                                 {dayjs(holiday.endDate).diff(
                                     dayjs(holiday.startDate),
+                                    'day',
+                                    true,
                                 ) +
                                     1 +
                                     ' day(s)'}
