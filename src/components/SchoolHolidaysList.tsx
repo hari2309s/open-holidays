@@ -1,125 +1,75 @@
-import { List, ListDivider, ListItem, Typography } from '@mui/joy';
+import { Sheet, Table } from '@mui/joy';
 import dayjs from 'dayjs';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectSchoolHolidays } from '../store/features/school-holidays/schoolHolidaysSlice';
-import ListHeader from './ListHeader';
 import { selectLanguage } from '../store/features/ui/uiSlice';
+import { LanguageCode } from '../api/types';
 
 const SchoolHolidaysList = () => {
     const schoolHolidays = useSelector(selectSchoolHolidays);
-    const language = useSelector(selectLanguage);
+    const currentLanguage = useSelector(selectLanguage);
 
     return (
-        <div>
-            <ListHeader />
-            <List
+        <Sheet sx={{ height: '400px', overflow: 'auto', borderRadius: '5px' }}>
+            <Table
+                aria-label="publice-holidays-table"
                 variant="outlined"
+                stickyHeader
                 size="lg"
+                stripe="odd"
                 sx={{
-                    minWidth: '90vw',
-                    minHeight: '400px',
-                    maxHeight: '400px',
-                    margin: '20px 0',
-                    backgroundColor: 'white',
-                    borderRadius: 'sm',
-                    overflow: 'scroll',
+                    '> thead > tr > th': { textAlign: 'center' },
                 }}
             >
-                {schoolHolidays.map(holiday => (
-                    <ListItem
-                        key={holiday.id}
-                        sx={{
-                            margin: '10px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            padding: '10px',
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: '100%',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    width: '500px',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }}
-                            >
-                                <Typography
-                                    sx={{ color: '#006d77', textAlign: 'left' }}
-                                >
-                                    {
-                                        holiday.name.filter(
-                                            entry =>
-                                                entry.language ===
-                                                language.languageCode,
-                                        )[0].text
-                                    }
-                                </Typography>
-                                <div
-                                    style={{
-                                        width: '200px',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <Typography
-                                        sx={{
-                                            color: '#006d77',
-                                            fontStyle: 'italic',
-                                        }}
-                                    >
-                                        {dayjs(holiday.startDate).format(
-                                            'DD.MM.YYYY',
-                                        )}
-                                    </Typography>
-                                    {' - '}
-                                    <Typography
-                                        sx={{
-                                            color: '#006d77',
-                                            fontStyle: 'italic',
-                                        }}
-                                    >
-                                        {dayjs(holiday.endDate).format(
-                                            'DD.MM.YYYY',
-                                        )}
-                                    </Typography>
-                                </div>
-                            </div>
-                            <div
-                                style={{
-                                    width: '200px',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }}
-                            >
-                                <Typography sx={{ color: '#006d77' }}>
-                                    {dayjs(holiday.endDate).diff(
-                                        dayjs(holiday.startDate),
-                                        'day',
-                                        true,
-                                    ) +
-                                        1 +
-                                        ' day(s)'}
-                                </Typography>
-                                <Typography sx={{ color: '#006d77' }}>
-                                    {holiday.nationwide ? 'National' : 'Local'}
-                                </Typography>
-                            </div>
-                        </div>
-                        <ListDivider
-                            sx={{ backgroundColor: '#006d77' }}
-                            inset="gutter"
-                        />
-                    </ListItem>
-                ))}
-            </List>
-        </div>
+                <thead>
+                    <tr>
+                        <th>
+                            {currentLanguage.languageCode === LanguageCode.EN
+                                ? 'Holidays'
+                                : 'Ferientag'}
+                        </th>
+                        <th>Dates</th>
+                        <th>
+                            {currentLanguage.languageCode === LanguageCode.EN
+                                ? 'Duration'
+                                : 'Laufzeit'}
+                        </th>
+                        <th>
+                            {currentLanguage.languageCode === LanguageCode.EN
+                                ? 'Type'
+                                : 'Typ'}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {schoolHolidays.map(holiday => (
+                        <tr key={holiday.id}>
+                            <td>{`${
+                                holiday.name.filter(
+                                    entry =>
+                                        entry.language ===
+                                        currentLanguage.languageCode,
+                                )[0].text
+                            }`}</td>
+                            <td>
+                                {dayjs(holiday.startDate).format('DD.MM.YYYY') +
+                                    ' - ' +
+                                    dayjs(holiday.endDate).format('DD.MM.YYYY')}
+                            </td>
+                            <td>
+                                {dayjs(holiday.endDate).diff(
+                                    dayjs(holiday.startDate),
+                                ) +
+                                    1 +
+                                    ' day(s)'}
+                            </td>
+                            <td>{holiday.nationwide ? 'National' : 'Local'}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+        </Sheet>
     );
 };
 
