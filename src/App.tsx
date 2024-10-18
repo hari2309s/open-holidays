@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import styled from '@emotion/styled';
 import Form from './components/Form';
-import { Typography } from '@mui/joy';
+import Typography from '@mui/joy/Typography';
 import List from './components/List';
 import LanguageHeader from './components/LanguageHeader';
 import { useSelector } from 'react-redux';

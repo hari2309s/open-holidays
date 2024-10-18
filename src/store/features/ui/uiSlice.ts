@@ -16,7 +16,7 @@ interface UiState {
 const initialState: UiState = {
     country: 'Germany',
     holidayType: HolidayType.PUBLIC,
-    language: { languageCode: LanguageCode.EN, languageText: LanguageText.DE },
+    language: { languageCode: LanguageCode.EN, languageText: LanguageText.EN },
 };
 
 export const UiSlice = createSlice({

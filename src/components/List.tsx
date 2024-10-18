@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Box, Typography } from '@mui/joy';
+import Box from '@mui/joy/Box';
+import Typography from '@mui/joy/Typography';
 import {
     selectCountry,
     selectHolidayType,

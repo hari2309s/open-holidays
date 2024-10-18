@@ -1,4 +1,5 @@
-import { Sheet, Table } from '@mui/joy';
+import Table from '@mui/joy/Table';
+import Sheet from '@mui/joy/Sheet';
 import dayjs from 'dayjs';
 import React from 'react';
 import { useSelector } from 'react-redux';

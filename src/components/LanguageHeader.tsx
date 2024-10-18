@@ -1,4 +1,5 @@
-import { Option, Select } from '@mui/joy';
+import Select from '@mui/joy/Select';
+import Option from '@mui/joy/Option';
 import React from 'react';
 import { LanguageCode, LanguageText } from '../api/types';
 import { setLanguage } from '../store/features/ui/uiSlice';

@@ -1,4 +1,4 @@
-import { ListSubheader } from '@mui/joy';
+import ListSubheader from '@mui/joy/ListSubheader';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '../store/features/ui/uiSlice';
