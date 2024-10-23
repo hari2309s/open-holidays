@@ -17,7 +17,8 @@ const LanguageHeader = () => {
             dispatch(
                 setLanguage({
                     languageCode: newValue as LanguageCode,
-                    languageText: newValue as LanguageText,
+                    languageText:
+                        LanguageText[newValue as keyof typeof LanguageText],
                 }),
             );
         }
