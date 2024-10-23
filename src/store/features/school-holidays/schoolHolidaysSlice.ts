@@ -59,11 +59,22 @@ export const schoolHolidaysSlice = createSlice({
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(getSchoolHolidays.rejected, (state, action) => {
-                state.schoolHolidays = [];
-                state.loading = false;
-                state.error = action.error;
-            });
+            .addCase(
+                getSchoolHolidays.rejected,
+                (
+                    state,
+                    action: PayloadAction<
+                        unknown,
+                        string,
+                        never,
+                        SerializedError
+                    >,
+                ) => {
+                    state.schoolHolidays = [];
+                    state.loading = false;
+                    state.error = action.error;
+                },
+            );
     },
 });
 
